@@ -1,0 +1,165 @@
+# To the extent possible under law, the author(s) have dedicated all
+# copyright and related and neighboring rights to this software to the
+# public domain worldwide. This software is distributed without any warranty.
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software.
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+# base-files version 4.3-3
+
+# ~/.bash_profile: executed by bash(1) for login shells.
+
+# The latest version as installed by the Cygwin Setup program can
+# always be found at /etc/defaults/etc/skel/.bash_profile
+
+# Modifying /etc/skel/.bash_profile directly will prevent
+# setup from updating it.
+
+# The copy in your home directory (~/.bash_profile) is yours, please
+# feel free to customise it to create a shell
+# environment to your liking.  If you feel a change
+# would be benifitial to all, please feel free to send
+# a patch to the cygwin mailing list.
+
+# User dependent .bash_profile file
+
+# source the users bashrc if it exists
+if [ -f "${HOME}/.bashrc" ] ; then
+  source "${HOME}/.bashrc"
+fi
+
+# Set PATH so it includes user's private bin if it exists
+# if [ -d "${HOME}/bin" ] ; then
+#   PATH="${HOME}/bin:${PATH}"
+# fi
+
+# Set MANPATH so it includes users' private man if it exists
+# if [ -d "${HOME}/man" ]; then
+#   MANPATH="${HOME}/man:${MANPATH}"
+# fi
+
+# Set INFOPATH so it includes users' private info if it exists
+# if [ -d "${HOME}/info" ]; then
+#   INFOPATH="${HOME}/info:${INFOPATH}"
+# fi
+
+#==============================================================================
+# Exports
+#==============================================================================
+
+# X11 Display
+if [ -z "$DISPLAY" ]; then
+  export DISPLAY=:0.0
+fi
+
+# Hi DPI GDK/QT (eg. meld, etc.)
+# - https://wiki.archlinux.org/title/HiDPI
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=1
+# export QT_SCALE_FACTOR=2
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export ELM_SCALE=2
+
+#==============================================================================
+# Path
+#==============================================================================
+# PATH=$HOME/Library/Python/3.8/bin:$PATH
+# PATH=$HOME/Library/Python/3.9/bin:$PATH
+# PATH=$HOME/Library/Python/3.10/bin:$PATH
+
+PATH=/opt/local/bin:$PATH
+
+export PATH
+
+#==============================================================================
+# Greeting
+#==============================================================================
+UNAME=$(uname)
+HOSTNAME=$(hostname -s)
+echo "$UNAME/$HOSTNAME"
+fortune | cowsay -f $(ls /opt/local/share/cows/ | shuf -n1) | lolcat
+echo -e "$UNAME/$HOSTNAME" | figlet -w 128 | lolcat
+echo -e $HOSTNAME | figlet | lolcat
+echo -e $HOSTNAME | toilet | lolcat
+echo -e $HOSTNAME | boxes -d parchment | lolcat
+ls ~/Pictures/*.jp?g | shuf -n 1 | xargs -d '\n' jp2a --width=80 --colors
+
+echo
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m  __  __ _                     __ _"
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m |  \/  (_)__ _ _ ___ ___ ___ / _| |_"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m | |\/| | / _| '_/ _ (_-</ _ \  _|  _|"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m |_|  |_|_\__|_| \___/__/\___/_|  \__|"
+echo
+
+#==============================================================================
+# Micro$oft
+#==============================================================================
+
+# figlet -w 100 -f /opt/local/share/figlet/small.flf  Micro\$oft
+#  __  __ _                     __ _
+# |  \/  (_)__ _ _ ___ ||_ ___ / _| |_
+# | |\/| | / _| '_/ _ (_-</ _ \  _|  _|
+# |_|  |_|_\__|_| \___/ _/\___/_|  \__|
+#                      ||
+
+echo
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m  __  __ _                     __ _"
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m |  \/  (_)__ _ _ ___ ||_ ___ / _| |_"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m | |\/| | / _| '_/ _ (_-</ _ \  _|  _|"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m |_|  |_|_\__|_| \___/ _/\___/_|  \__|"
+echo -e "                               ||"
+echo
+
+echo
+echo -e "           __  __ _                     __ _"
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m |  \/  (_)__ _ _ ___ ||_ ___ / _| |_"
+echo -e " \e[0;31m█\e[0;31m█\e[0;31m█\e[0;31m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0;32m█\e[0m | |\/| | / _| '_/ _ (_-</ _ \  _|  _|"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m |_|  |_|_\__|_| \___/ _/\___/_|  \__|"
+echo -e " \e[0;34m█\e[0;34m█\e[0;34m█\e[0;34m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0;33m█\e[0m                      ||"
+echo
+
+# ┌───┬───┐  __  __ _                     __ _
+# │   |   | |  \/  (_)__ _ _ ___ ||_ ___ / _| |_
+# ├───┼───┤ | |\/| | / _| '_/ _ (_-</ _ \  _|  _|
+# │   |   | |_|  |_|_\__|_| \___/ _/\___/_|  \__|
+# └───┴───┘                      ||
+
+# +---+---+  __  __ _                     __ _
+# |   |   | |  \/  (_)__ _ _ ___ ||_ ___ / _| |_
+# +---+---+ | |\/| | / _| '_/ _ (_-</ _ \  _|  _|
+# |   |   | |_|  |_|_\__|_| \___/ _/\___/_|  \__|
+# +---+---+                      ||
+
+echo " ┌───┬───┐  __  __ _                     __ _"
+echo " │   |   | |  \/  (_)__ _ _ ___ ||_ ___ / _| |_"
+echo " ├───┼───┤ | |\/| | / _| '_/ _ (_-</ _ \  _|  _|"
+echo " │   |   | |_|  |_|_\__|_| \___/ _/\___/_|  \__|"
+echo " └───┴───┘                      ||"
+
+#==============================================================================
+# Apple
+# Note. Space in the end of string prevents dquote (https://stackoverflow.com/questions/15773278/linux-shell-scripting-error-for-double-quotes-sentence-closing).
+#==============================================================================
+
+echo "       :; "
+echo "      l:.         _                _ "
+echo ".lxxxdoxxxl      / \   _ __  _ __ | | ___ "
+echo "xxxxxxxxxx      / _ \ | '_ \| '_ \| |/ _ \ "
+echo ";ccccccccc'    / ___ \| |_) | |_) | |  __/ "
+echo " '::::::::;.  /_/   \_\ .__/| .__/|_|\___| "
+echo "  .c:'.;c;            |_|   |_| "
+
+#==============================================================================
+# Set X11 cursor_name
+#
+# The default X shaped Xcursor appears in window managers that do not set the
+# default cursor to left_ptr or in window managers using XCB (like awesome)
+# instead of Xlib.
+#
+# - https://wiki.archlinux.org/title/Cursor_themes
+#
+# To fix this, cursor_name must be set in the XWin startup script, such as
+# ~/.xinitrc, xsession, startxwinrc, etc. If this setting fails in the script,
+# set cursor_name in ~/.bash_profile.
+#==============================================================================
+[ -x /usr/bin/xsetroot ] && /usr/bin/xsetroot -cursor_name left_ptr
