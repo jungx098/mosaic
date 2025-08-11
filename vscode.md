@@ -109,3 +109,11 @@ Add `terminal` configs for Preference::User Settings (JSON)
     "code-eol.highlightNonDefault": true,
 }
 ```
+
+-------------------------------------------------------------------------------
+
+# Double-Click Selection in Windows Terminal
+
+To customize word selection on double-click, adjust the wordDelimiters setting in Windows Terminal.
+
+- https://stackoverflow.com/questions/60441221/double-click-to-select-text-in-windows-terminal-selects-only-one-word
